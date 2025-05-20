@@ -1,0 +1,26 @@
+{
+  "edit": "Modifier",
+  "delete": "Supprimer",
+  "name": "Nom",
+  "email": "E-mail",
+  "role": "Rôle",
+  "actions": "Actions",
+  "sidebar": {
+    "users": "Utilisateurs",
+    "products": "Produits",
+    "productsList": "Voir tous les produits",
+    "addProduct": "Ajouter un produit"
+  },
+  "login": {
+    "welcome": "Bon retour parmi nous, Admin",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "error": "Erreur",
+    "errorMessage": "Une erreur est survenue lors de la connexion",
+    "loginButton": "Se connecter",
+    "loading": "Connexion en cours..."
+  },
+  "usersListTitle": "Liste des utilisateurs",
+  "fetchUsersError": "Une erreur s'est produite lors de la récupération des utilisateurs :",
+  "deleteUserError": "Une erreur s'est produite lors de la suppression de l'utilisateur :"
+}
