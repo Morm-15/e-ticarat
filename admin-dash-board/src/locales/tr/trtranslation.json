@@ -1,0 +1,26 @@
+{
+  "edit": "Düzenle",
+  "delete": "Sil",
+  "name": "Ad",
+  "email": "E-posta",
+  "role": "Rol",
+  "actions": "İşlemler",
+  "sidebar": {
+    "users": "Kullanıcılar",
+    "products": "Ürünler",
+    "productsList": "Tüm Ürünleri Görüntüle",
+    "addProduct": "Ürün Ekle"
+  },
+  "login": {
+    "welcome": "Tekrar Hoş Geldiniz Admin",
+    "email": "E-posta",
+    "password": "Şifre",
+    "error": "Hata",
+    "errorMessage": "Giriş yapılırken bir hata oluştu",
+    "loginButton": "Giriş Yap",
+    "loading": "Giriş yapılıyor..."
+  },
+  "usersListTitle": "Kullanıcı Listesi",
+  "fetchUsersError": "Kullanıcılar alınırken bir hata oluştu:",
+  "deleteUserError": "Kullanıcı silinirken bir hata oluştu:"
+}
