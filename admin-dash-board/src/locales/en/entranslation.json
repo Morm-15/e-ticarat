@@ -1,0 +1,26 @@
+{
+  "edit": "Edit",
+  "delete": "Delete",
+  "name": "Name",
+  "email": "Email",
+  "role": "Role",
+  "actions": "Actions",
+  "sidebar": {
+    "users": "Users",
+    "products": "Products",
+    "productsList": "View All Products",
+    "addProduct": "Add Product"
+  },
+  "login": {
+    "welcome": "Welcome back, Admin",
+    "email": "Email",
+    "password": "Password",
+    "error": "Error",
+    "errorMessage": "An error occurred during login",
+    "loginButton": "Login",
+    "loading": "Logging in..."
+  },
+  "usersListTitle": "Users List",
+  "fetchUsersError": "An error occurred while fetching users:",
+  "deleteUserError": "An error occurred while deleting the user:"
+}
