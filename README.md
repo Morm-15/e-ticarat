@@ -1,1 +1,1 @@
-Admin Dashboard
+Admin Dashboad Paneli
