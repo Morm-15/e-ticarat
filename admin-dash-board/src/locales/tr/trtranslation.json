@@ -1,0 +1,149 @@
+{
+  "actions": {
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "view_details": "Detayları Görüntüle"
+  },
+  "auth": {
+    "login": {
+      "welcome": "Tekrar hoş geldiniz, Yönetici",
+      "email": "E-posta",
+      "password": "Şifre",
+      "error": "Hata",
+      "errorMessage": "Giriş sırasında bir hata oluştu",
+      "loginButton": "Giriş Yap",
+      "loading": "Giriş yapılıyor..."
+    }
+  },
+  "common": {
+    "name": "İsim",
+    "email": "E-posta",
+    "role": "Rol",
+    "actions": "İşlemler",
+    "save": "Kaydet",
+    "cancel": "İptal"
+  },
+  "sidebar": {
+    "users": "Kullanıcılar",
+    "products": "Ürünler",
+    "productsList": "Tüm Ürünleri Görüntüle",
+    "addProduct": "Ürün Ekle"
+  },
+  "users": {
+    "listTitle": "Kullanıcı Listesi",
+    "fetchError": "Kullanıcılar getirilirken bir hata oluştu:",
+    "deleteError": "Kullanıcı silinirken bir hata oluştu:"
+  },
+  "product": {
+    "addTitle": "Yeni Ürün Ekle",
+    "notEditable": "Ürün düzenlenemez",
+    "notDeletable": "Ürün silinemez",
+    "outOfStock": "Stokta yok"
+  },
+  "form": {
+    "name": "Ürün Adı",
+    "category": "Kategori",
+    "subcategory": "Alt Kategori",
+    "productType": "Ürün Tipi",
+    "description": "Açıklama",
+    "stock": "Stok Miktarı",
+    "discount": "İndirim (%)",
+    "priceTL": "Fiyat (₺)",
+    "priceUSD": "Fiyat ($)",
+    "priceEUR": "Fiyat (€)",
+    "sizesHint": "Bedenler (virgülle ayrılmış)",
+    "sizesPlaceholder": "örn. S, M, L, XL",
+    "colorsHint": "Renkler (virgülle ayrılmış)",
+    "colorsPlaceholder": "örn. Kırmızı, Mavi, Yeşil",
+    "uploadImages": "Resim Yükle (çoklu)",
+    "imagePreviewAlt": "Ürün Resmi Önizlemesi",
+    "removeImage": "Resmi Kaldır",
+    "submitButton": "Ürün Ekle"
+  },
+  "messages": {
+    "productAddedSuccess": "Ürün başarıyla eklendi!",
+    "errorAddingProduct": "Ürün eklenirken bir hata oluştu."
+  },
+  "modal": {
+    "confirmDeleteTitle": "Ürünü Silmeyi Onayla",
+    "confirmDeleteText": "Ürünü silmek istediğinizden emin misiniz:",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "close": "Pencereyi Kapat",
+    "noImage": "Resim bulunamadı",
+    "noDescription": "Bu ürün için açıklama yok.",
+    "priceTRY": "Fiyat (TRY):",
+    "category": "Kategori:",
+    "productType": "Ürün Tipi:",
+    "colors": "Renkler:",
+    "sizes": "Bedenler:",
+    "stock": "Stok:",
+    "rating": "Değerlendirme:"
+  },
+  "editProduct": "Ürünü Düzenle",
+  "productName": "Ürün Adı",
+  "category": "Kategori",
+  "subcategory": "Alt Kategori",
+  "productType": "Ürün Tipi",
+  "description": "Açıklama",
+  "stock": "Stok",
+  "discountPercent": "İndirim (%)",
+  "priceTL": "Fiyat (TL)",
+  "priceUSD": "Fiyat (USD)",
+  "priceEUR": "Fiyat (EUR)",
+  "sizesExample": "Bedenler (örn., S,M,L)",
+  "colorsExample": "Renkler (örn., Kırmızı,Mavi)",
+  "images": "Resimler",
+  "image": "Resim",
+  "removeImage": "Resmi Kaldır",
+  "clickToAddImage": "Resim eklemek için tıklayın",
+  "title": {
+    "products": "Ürünler"
+  },
+  "loading": {
+    "products": "Ürünler yükleniyor..."
+  },
+  "message": {
+    "noProducts": "Gösterilecek ürün yok"
+  },
+  "error": {
+    "deletingProduct": "Ürün silinirken hata oluştu:",
+    "deletingProductAlert": "Silme işlemi sırasında hata oluştu.",
+    "updatingProduct": "Ürün güncellenirken hata oluştu:",
+    "updatingProductAlert": "Değişiklikler kaydedilirken hata oluştu.",
+    "fetchingProducts": "Ürünler getirilirken hata oluştu:"
+  },
+  "edit": "Düzenle",
+  "delete": "Sil",
+  "name": "İsim",
+  "email": "E-posta",
+  "role": "Rol",
+  "actions": "İşlemler",
+  "edit": "Düzenle",
+  "delete": "Sil",
+  "usersListTitle": "Kullanıcı Listesi",
+  "fetchUsersError": "Kullanıcılar alınırken bir hata oluştu:",
+  "deleteUserError": "Kullanıcı silinirken bir hata oluştu:",
+  "editUser": "Kullanıcıyı Düzenle",
+  "userUpdatedSuccess": "Kullanıcı başarıyla güncellendi ✔️",
+  "updateUserError": "Kullanıcı güncellenirken bir hata oluştu:",
+  "name": "Ad",
+  "email": "E-posta",
+  "role": "Rol",
+  "admin": "Yönetici",
+  "user": "Kullanıcı",
+  "status": "Durum",
+  "active": "Aktif",
+  "inactive": "Pasif",
+  "cancel": "İptal",
+  "saveChanges": "Değişiklikleri Kaydet",
+  "saving": "Kaydediliyor...",
+  "confirmDeleteTitle": "Kullanıcı Silme Onayı",
+  "deleteInstructions": "Silmek için lütfen kullanıcı adını ve aşağıdaki kodu girin:",
+  "enterUserName": "Kullanıcı adını girin",
+  "enterCode": "4 haneli kodu girin",
+  "wrongUserName": "Kullanıcı adı yanlış",
+  "wrongCode": "Kod yanlış",
+  "cancel": "İptal",
+  "confirmDelete": "Silmeyi Onayla"
+}

@@ -1,0 +1,149 @@
+{
+  "actions": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "view_details": "View Details"
+  },
+  "auth": {
+    "login": {
+      "welcome": "Welcome back, Admin",
+      "email": "Email",
+      "password": "Password",
+      "error": "Error",
+      "errorMessage": "An error occurred during login",
+      "loginButton": "Login",
+      "loading": "Logging in..."
+    }
+  },
+  "common": {
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "actions": "Actions",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "sidebar": {
+    "users": "Users",
+    "products": "Products",
+    "productsList": "View All Products",
+    "addProduct": "Add Product"
+  },
+  "users": {
+    "listTitle": "Users List",
+    "fetchError": "An error occurred while fetching users:",
+    "deleteError": "An error occurred while deleting the user:"
+  },
+  "product": {
+    "addTitle": "Add New Product",
+    "notEditable": "Product is not editable",
+    "notDeletable": "Product is not deletable",
+    "outOfStock": "Out of Stock"
+  },
+  "form": {
+    "name": "Product Name",
+    "category": "Category",
+    "subcategory": "Subcategory",
+    "productType": "Product Type",
+    "description": "Description",
+    "stock": "Stock Quantity",
+    "discount": "Discount (%)",
+    "priceTL": "Price (₺)",
+    "priceUSD": "Price ($)",
+    "priceEUR": "Price (€)",
+    "sizesHint": "Sizes (comma separated)",
+    "sizesPlaceholder": "e.g. S, M, L, XL",
+    "colorsHint": "Colors (comma separated)",
+    "colorsPlaceholder": "e.g. Red, Blue, Green",
+    "uploadImages": "Upload Images (multiple)",
+    "imagePreviewAlt": "Product Image Preview",
+    "removeImage": "Remove Image",
+    "submitButton": "Add Product"
+  },
+  "messages": {
+    "productAddedSuccess": "Product added successfully!",
+    "errorAddingProduct": "An error occurred while adding the product."
+  },
+  "modal": {
+    "confirmDeleteTitle": "Confirm Product Deletion",
+    "confirmDeleteText": "Are you sure you want to delete the product:",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "close": "Close Window",
+    "noImage": "No image available",
+    "noDescription": "No description available for this product.",
+    "priceTRY": "Price (TRY):",
+    "category": "Category:",
+    "productType": "Product Type:",
+    "colors": "Colors:",
+    "sizes": "Sizes:",
+    "stock": "Stock:",
+    "rating": "Rating:"
+  },
+  "editProduct": "Edit Product",
+  "productName": "Product Name",
+  "category": "Category",
+  "subcategory": "Subcategory",
+  "productType": "Product Type",
+  "description": "Description",
+  "stock": "Stock",
+  "discountPercent": "Discount (%)",
+  "priceTL": "Price (TL)",
+  "priceUSD": "Price (USD)",
+  "priceEUR": "Price (EUR)",
+  "sizesExample": "Sizes (e.g., S,M,L)",
+  "colorsExample": "Colors (e.g., Red,Blue)",
+  "images": "Images",
+  "image": "Image",
+  "removeImage": "Remove Image",
+  "clickToAddImage": "Click to add image",
+  "title": {
+    "products": "Products"
+  },
+  "loading": {
+    "products": "Loading products..."
+  },
+  "message": {
+    "noProducts": "No products to display"
+  },
+  "error": {
+    "deletingProduct": "Error deleting product:",
+    "deletingProductAlert": "An error occurred while deleting.",
+    "updatingProduct": "Error updating product:",
+    "updatingProductAlert": "An error occurred while saving changes.",
+    "fetchingProducts": "Error fetching products:"
+  },
+  "edit": "Edit",
+  "delete": "Delete",
+  "name": "Name",
+  "email": "Email",
+  "role": "Role",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "usersListTitle": "Users List",
+  "fetchUsersError": "An error occurred while fetching users:",
+  "deleteUserError": "An error occurred while deleting the user:",
+  "editUser": "Edit User",
+  "userUpdatedSuccess": "User updated successfully ✔️",
+  "updateUserError": "An error occurred while updating the user:",
+  "name": "Name",
+  "email": "Email",
+  "role": "Role",
+  "admin": "Admin",
+  "user": "User",
+  "status": "Status",
+  "active": "Active",
+  "inactive": "Inactive",
+  "cancel": "Cancel",
+  "saveChanges": "Save Changes",
+  "saving": "Saving...",
+  "confirmDeleteTitle": "Confirm User Deletion",
+  "deleteInstructions": "To delete, please enter the user's name and the following code:",
+  "enterUserName": "Enter user name",
+  "enterCode": "Enter the 4-digit code",
+  "wrongUserName": "Incorrect user name",
+  "wrongCode": "Incorrect code",
+  "cancel": "Cancel",
+  "confirmDelete": "Confirm Deletion"
+}

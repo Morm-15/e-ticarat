@@ -13,7 +13,7 @@ function Header() {
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
 
   const languages = ["AR", "EN", "FR", "TR"];
-  const currencies = ["USD", "EUR", "TRY", "SAR"];
+  const currencies = ["USD", "EUR", "TRY"];
 
   // تغيير اتجاه الصفحة حسب اللغة
   useEffect(() => {

@@ -1,0 +1,150 @@
+{
+  "actions": {
+    "edit": "تعديل",
+    "delete": "حذف",
+    "view_details": "عرض التفاصيل"
+  },
+  "auth": {
+    "login": {
+      "welcome": "مرحبًا بعودتك، المسؤول",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "error": "خطأ",
+      "errorMessage": "حدث خطأ أثناء تسجيل الدخول",
+      "loginButton": "تسجيل الدخول",
+      "loading": "جاري تسجيل الدخول..."
+    }
+  },
+  "common": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "role": "الدور",
+    "actions": "الإجراءات",
+    "save": "حفظ",
+    "cancel": "إلغاء"
+  },
+  "sidebar": {
+    "users": "المستخدمون",
+    "products": "المنتجات",
+    "productsList": "عرض جميع المنتجات",
+    "addProduct": "إضافة منتج"
+  },
+  "users": {
+    "listTitle": "قائمة المستخدمين",
+    "fetchError": "حدث خطأ أثناء جلب المستخدمين:",
+    "deleteError": "حدث خطأ أثناء حذف المستخدم:"
+  },
+  "product": {
+    "addTitle": "إضافة منتج جديد",
+    "notEditable": "المنتج غير متاح للتعديل",
+    "notDeletable": "المنتج غير متاح للحذف",
+    "outOfStock": "نفذ المخزون"
+  },
+  "form": {
+    "name": "اسم المنتج",
+    "category": "الفئة",
+    "subcategory": "الفئة الفرعية",
+    "productType": "نوع المنتج",
+    "description": "الوصف",
+    "stock": "كمية المخزون",
+    "discount": "الخصم (%)",
+    "priceTL": "السعر (₺)",
+    "priceUSD": "السعر ($)",
+    "priceEUR": "السعر (€)",
+    "sizesHint": "الأحجام (مفصولة بفواصل)",
+    "sizesPlaceholder": "مثلاً S, M, L, XL",
+    "colorsHint": "الألوان (مفصولة بفواصل)",
+    "colorsPlaceholder": "مثلاً أحمر، أزرق، أخضر",
+    "uploadImages": "تحميل الصور (متعدد)",
+    "imagePreviewAlt": "معاينة صورة المنتج",
+    "removeImage": "إزالة الصورة",
+    "submitButton": "إضافة المنتج"
+  },
+  "messages": {
+    "productAddedSuccess": "تم إضافة المنتج بنجاح!",
+    "errorAddingProduct": "حدث خطأ أثناء إضافة المنتج."
+  },
+  "modal": {
+    "confirmDeleteTitle": "تأكيد حذف المنتج",
+    "confirmDeleteText": "هل أنت متأكد أنك تريد حذف المنتج:",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "close": "إغلاق النافذة",
+    "noImage": "لا توجد صورة متاحة",
+    "noDescription": "لا يوجد وصف متاح لهذا المنتج.",
+    "priceTRY": "السعر (TRY):",
+    "category": "التصنيف:",
+    "productType": "نوع المنتج:",
+    "colors": "الألوان:",
+    "sizes": "المقاسات:",
+    "stock": "المخزون:",
+    "rating": "التقييم:"
+  },
+  "editProduct": "تعديل المنتج",
+  "productName": "اسم المنتج",
+  "category": "الفئة",
+  "subcategory": "الفئة الفرعية",
+  "productType": "نوع المنتج",
+  "description": "الوصف",
+  "stock": "المخزون",
+  "discountPercent": "الخصم (%)",
+  "priceTL": "السعر (TL)",
+  "priceUSD": "السعر (USD)",
+  "priceEUR": "السعر (EUR)",
+  "sizesExample": "الأحجام (مثلاً: S,M,L)",
+  "colorsExample": "الألوان (مثلاً: أحمر,أزرق)",
+  "images": "الصور",
+  "image": "صورة",
+  "removeImage": "حذف الصورة",
+  "clickToAddImage": "اضغط لإضافة صورة",
+  "title": {
+    "products": "المنتجات"
+  },
+  "loading": {
+    "products": "جاري تحميل المنتجات..."
+  },
+  "message": {
+    "noProducts": "لا توجد منتجات لعرضها"
+  },
+  "error": {
+    "deletingProduct": "خطأ أثناء حذف المنتج:",
+    "deletingProductAlert": "حدث خطأ أثناء الحذف.",
+    "updatingProduct": "خطأ أثناء تحديث المنتج:",
+    "updatingProductAlert": "حدث خطأ أثناء حفظ التعديلات.",
+    "fetchingProducts": "خطأ في جلب المنتجات:"
+  },
+  "edit": "تعديل",
+  "delete": "حذف",
+  "name": "الاسم",
+  "email": "البريد الإلكتروني",
+  "role": "الدور",
+  "actions": "الإجراءات",
+  "edit": "تعديل",
+  "delete": "حذف",
+  "usersListTitle": "قائمة المستخدمين",
+  "fetchUsersError": "حدث خطأ أثناء جلب المستخدمين:",
+  "deleteUserError": "حدث خطأ أثناء حذف المستخدم:",
+
+  "editUser": "تعديل المستخدم",
+  "userUpdatedSuccess": "تم تعديل المستخدم بنجاح ✔️",
+  "updateUserError": "حدث خطأ أثناء تعديل المستخدم:",
+  "name": "الاسم",
+  "email": "البريد الإلكتروني",
+  "role": "الدور",
+  "admin": "مدير",
+  "user": "مستخدم",
+  "status": "الحالة",
+  "active": "مفعل",
+  "inactive": "غير مفعل",
+  "cancel": "إلغاء",
+  "saveChanges": "حفظ التعديلات",
+  "saving": "جارٍ الحفظ...",
+  "confirmDeleteTitle": "تأكيد حذف المستخدم",
+  "deleteInstructions": "للحذف، يرجى إدخال اسم المستخدم والرمز التالي:",
+  "enterUserName": "أدخل اسم المستخدم",
+  "enterCode": "أدخل الرمز المكون من 4 خانات",
+  "wrongUserName": "اسم المستخدم غير صحيح",
+  "wrongCode": "الرمز غير صحيح",
+  "cancel": "إلغاء",
+  "confirmDelete": "تأكيد الحذف"
+}
