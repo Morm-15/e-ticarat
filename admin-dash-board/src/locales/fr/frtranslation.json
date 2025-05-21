@@ -1,0 +1,149 @@
+{
+  "actions": {
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "view_details": "Voir les détails"
+  },
+  "auth": {
+    "login": {
+      "welcome": "Bon retour, administrateur",
+      "email": "Email",
+      "password": "Mot de passe",
+      "error": "Erreur",
+      "errorMessage": "Une erreur est survenue lors de la connexion",
+      "loginButton": "Se connecter",
+      "loading": "Connexion en cours..."
+    }
+  },
+  "common": {
+    "name": "Nom",
+    "email": "Email",
+    "role": "Rôle",
+    "actions": "Actions",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "sidebar": {
+    "users": "Utilisateurs",
+    "products": "Produits",
+    "productsList": "Voir tous les produits",
+    "addProduct": "Ajouter un produit"
+  },
+  "users": {
+    "listTitle": "Liste des utilisateurs",
+    "fetchError": "Une erreur est survenue lors de la récupération des utilisateurs :",
+    "deleteError": "Une erreur est survenue lors de la suppression de l'utilisateur :"
+  },
+  "product": {
+    "addTitle": "Ajouter un nouveau produit",
+    "notEditable": "Produit non modifiable",
+    "notDeletable": "Produit non supprimable",
+    "outOfStock": "Rupture de stock"
+  },
+  "form": {
+    "name": "Nom du produit",
+    "category": "Catégorie",
+    "subcategory": "Sous-catégorie",
+    "productType": "Type de produit",
+    "description": "Description",
+    "stock": "Quantité en stock",
+    "discount": "Remise (%)",
+    "priceTL": "Prix (₺)",
+    "priceUSD": "Prix ($)",
+    "priceEUR": "Prix (€)",
+    "sizesHint": "Tailles (séparées par des virgules)",
+    "sizesPlaceholder": "ex. S, M, L, XL",
+    "colorsHint": "Couleurs (séparées par des virgules)",
+    "colorsPlaceholder": "ex. Rouge, Bleu, Vert",
+    "uploadImages": "Télécharger des images (multiple)",
+    "imagePreviewAlt": "Aperçu de l'image du produit",
+    "removeImage": "Supprimer l'image",
+    "submitButton": "Ajouter le produit"
+  },
+  "messages": {
+    "productAddedSuccess": "Produit ajouté avec succès !",
+    "errorAddingProduct": "Une erreur est survenue lors de l'ajout du produit."
+  },
+  "modal": {
+    "confirmDeleteTitle": "Confirmer la suppression du produit",
+    "confirmDeleteText": "Êtes-vous sûr de vouloir supprimer le produit :",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "close": "Fermer la fenêtre",
+    "noImage": "Aucune image disponible",
+    "noDescription": "Aucune description disponible pour ce produit.",
+    "priceTRY": "Prix (TRY) :",
+    "category": "Catégorie :",
+    "productType": "Type de produit :",
+    "colors": "Couleurs :",
+    "sizes": "Tailles :",
+    "stock": "Stock :",
+    "rating": "Note :"
+  },
+  "editProduct": "Modifier le produit",
+  "productName": "Nom du produit",
+  "category": "Catégorie",
+  "subcategory": "Sous-catégorie",
+  "productType": "Type de produit",
+  "description": "Description",
+  "stock": "Stock",
+  "discountPercent": "Remise (%)",
+  "priceTL": "Prix (TL)",
+  "priceUSD": "Prix (USD)",
+  "priceEUR": "Prix (EUR)",
+  "sizesExample": "Tailles (ex. : S,M,L)",
+  "colorsExample": "Couleurs (ex. : Rouge,Bleu)",
+  "images": "Images",
+  "image": "Image",
+  "removeImage": "Supprimer l'image",
+  "clickToAddImage": "Cliquez pour ajouter une image",
+  "title": {
+    "products": "Produits"
+  },
+  "loading": {
+    "products": "Chargement des produits..."
+  },
+  "message": {
+    "noProducts": "Aucun produit à afficher"
+  },
+  "error": {
+    "deletingProduct": "Erreur lors de la suppression du produit :",
+    "deletingProductAlert": "Une erreur est survenue lors de la suppression.",
+    "updatingProduct": "Erreur lors de la mise à jour du produit :",
+    "updatingProductAlert": "Une erreur est survenue lors de l'enregistrement des modifications.",
+    "fetchingProducts": "Erreur lors de la récupération des produits :"
+  },
+  "edit": "Modifier",
+  "delete": "Supprimer",
+  "name": "Nom",
+  "email": "Email",
+  "role": "Rôle",
+  "actions": "Actions",
+  "edit": "Modifier",
+  "delete": "Supprimer",
+  "usersListTitle": "Liste des utilisateurs",
+  "fetchUsersError": "Une erreur s'est produite lors du chargement des utilisateurs :",
+  "deleteUserError": "Une erreur s'est produite lors de la suppression de l'utilisateur :",
+  "editUser": "Modifier l'utilisateur",
+  "userUpdatedSuccess": "Utilisateur modifié avec succès ✔️",
+  "updateUserError": "Une erreur s'est produite lors de la mise à jour de l'utilisateur :",
+  "name": "Nom",
+  "email": "E-mail",
+  "role": "Rôle",
+  "admin": "Administrateur",
+  "user": "Utilisateur",
+  "status": "Statut",
+  "active": "Actif",
+  "inactive": "Inactif",
+  "cancel": "Annuler",
+  "saveChanges": "Enregistrer les modifications",
+  "saving": "Enregistrement en cours...",
+  "confirmDeleteTitle": "Confirmer la suppression de l'utilisateur",
+  "deleteInstructions": "Pour supprimer, veuillez saisir le nom de l'utilisateur et le code suivant :",
+  "enterUserName": "Entrez le nom de l'utilisateur",
+  "enterCode": "Entrez le code à 4 chiffres",
+  "wrongUserName": "Nom d'utilisateur incorrect",
+  "wrongCode": "Code incorrect",
+  "cancel": "Annuler",
+  "confirmDelete": "Confirmer la suppression"
+}

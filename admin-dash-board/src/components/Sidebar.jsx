@@ -55,7 +55,7 @@ export default function Sidebar() {
         />
       </div>
 
-      <nav className="flex flex-col space-y-2 text-sm font-medium">
+      <nav className="sticky top-0 flex flex-col space-y-2 text-sm font-medium">
         {/* المستخدمون */}
         <NavLink
           to="/dashboard/users"

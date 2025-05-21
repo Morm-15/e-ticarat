@@ -1,375 +1,343 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const categories = ["giyim", "ayakkabı", "aksesuar"];
-const subcategories = ["tişört", "pantolon", "bot", "çanta"];
-const productTypes = ["erkek", "kadın", "çocuk", "unisex"];
-const sizesOptions = ["XS", "S", "M", "L", "XL", "XXL"];
-const currencies = ["TL", "USD", "EUR"];
+const AddProduct = () => {
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
-export default function AddProduct() {
-    const [formData, setFormData] = useState({
-        name: "",
-        category: "",
-        subcategory: "",
-        productType: "",
-        colors: [],  // مصفوفة ألوان
-        sizes: [],   // مصفوفة مقاسات
-        images: [],  // ملفات الصور (File objects)
-        price: "",
-        currency: "TL",
-        discount: 0,
-        stock: 0,
-        description: "",
-        isActive: true,
-    });
+  // حالة النموذج
+  const [formState, setFormState] = useState({
+    name: "",
+    category: "",
+    subcategory: "",
+    productType: "",
+    prices: { USD: 0, EUR: 0, TL: 0 },
+    stock: 0,
+    description: "",
+    sizes: [],
+    colors: [],
+    discount: 0,
+  });
 
-    // إنشاء URLs معاينة للصور المختارة
-    const [imagePreviews, setImagePreviews] = useState([]);
+  const [images, setImages] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState([]);
 
-    // تحديث الحقول العادية والألوان والمقاسات
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
+  // التعامل مع تغير القيم في الحقول العادية وأسعار العملات
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name.startsWith("prices.")) {
+      const currency = name.split(".")[1];
+      setFormState((prev) => ({
+        ...prev,
+        prices: { ...prev.prices, [currency]: Number(value) },
+      }));
+    } else {
+      setFormState((prev) => ({ ...prev, [name]: value }));
+    }
+  };
 
-        if (type === "checkbox" && name !== "colors" && name !== "sizes") {
-            setFormData((prev) => ({ ...prev, [name]: checked }));
-        } else if (name === "colors") {
-            const colorsArray = value.split(",").map(c => c.trim()).filter(c => c !== "");
-            setFormData((prev) => ({ ...prev, colors: colorsArray }));
-        } else if (name === "sizes") {
-            const sizesArray = value
-                .split(",")
-                .map(s => s.trim().toUpperCase())
-                .filter(s => sizesOptions.includes(s));
-            setFormData((prev) => ({ ...prev, sizes: sizesArray }));
-        } else {
-            setFormData((prev) => ({ ...prev, [name]: value }));
-        }
-    };
+  // معالجة تغير قيم الأحجام (sizes)
+  const handleSizesChange = (e) => {
+    setFormState((prev) => ({
+      ...prev,
+      sizes: e.target.value
+        .split(",")
+        .map((size) => size.trim())
+        .filter((size) => size !== ""),
+    }));
+  };
 
-    // معالجة رفع الصور وإنشاء معاينات
-    const handleImageUpload = (e) => {
-        const files = Array.from(e.target.files);
-        const newImages = [...formData.images, ...files];
-        setFormData(prev => ({ ...prev, images: newImages }));
+  // معالجة تغير قيم الألوان (colors)
+  const handleColorsChange = (e) => {
+    setFormState((prev) => ({
+      ...prev,
+      colors: e.target.value
+        .split(",")
+        .map((color) => color.trim())
+        .filter((color) => color !== ""),
+    }));
+  };
 
-        // إنشاء URLs للمعاينة
-        const newPreviews = files.map(file => URL.createObjectURL(file));
-        setImagePreviews(prev => [...prev, ...newPreviews]);
-    };
+  // رفع الصور وعرض المعاينة
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setImages((prev) => [...prev, ...files]);
+    const previews = files.map((file) => URL.createObjectURL(file));
+    setImagePreviews((prev) => [...prev, ...previews]);
+  };
 
-    // حذف صورة
-    const handleRemoveImage = (index) => {
-        const newImages = [...formData.images];
-        const newPreviews = [...imagePreviews];
+  // حذف صورة من المعاينة
+  const handleRemoveImage = (index) => {
+    setImages((prev) => prev.filter((_, i) => i !== index));
+    setImagePreviews((prev) => prev.filter((_, i) => i !== index));
+  };
 
-        // تحرير الذاكرة الخاصة بـ URL.createObjectURL
-        URL.revokeObjectURL(newPreviews[index]);
+  // ارسال النموذج
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("name", formState.name);
+      formData.append("category", formState.category);
+      formData.append("subcategory", formState.subcategory);
+      formData.append("productType", formState.productType);
+      formData.append("description", formState.description);
+      formData.append("discount", formState.discount);
+      formData.append("stock", formState.stock);
+      formData.append("prices", JSON.stringify(formState.prices));
+      formData.append("sizes", formState.sizes.join(","));
+      formData.append("colors", formState.colors.join(","));
 
-        newImages.splice(index, 1);
-        newPreviews.splice(index, 1);
+      images.forEach((image) => {
+        formData.append("images", image);
+      });
 
-        setFormData(prev => ({ ...prev, images: newImages }));
-        setImagePreviews(newPreviews);
-    };
+      await axios.post("http://localhost:5000/api/products", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
-    // إرسال البيانات
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+      alert(t("messages.product_added_success"));
+      navigate("/dashboard/products/list");
+    } catch (error) {
+      console.error("Error adding product:", error);
+      alert(t("messages.error_adding_product"));
+    }
+  };
 
-        // تحقق من صحة القيم
-        if (!categories.includes(formData.category)) {
-            alert("الرجاء اختيار فئة صحيحة");
-            return;
-        }
-        if (formData.subcategory && !subcategories.includes(formData.subcategory)) {
-            alert("الرجاء اختيار فئة فرعية صحيحة أو تركها فارغة");
-            return;
-        }
-        if (!productTypes.includes(formData.productType)) {
-            alert("الرجاء اختيار نوع المنتج صحيح");
-            return;
-        }
-        if (!currencies.includes(formData.currency)) {
-            alert("الرجاء اختيار العملة بشكل صحيح");
-            return;
-        }
-        if (formData.images.length === 0) {
-            alert("يجب اختيار صورة واحدة على الأقل");
-            return;
-        }
-        if (!formData.name.trim() || !formData.price) {
-            alert("الاسم والسعر مطلوبان");
-            return;
-        }
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">
+        {t("product.add_title")}
+      </h2>
 
-        try {
-            // تجهيز FormData للرفع
-            const data = new FormData();
-            data.append("name", formData.name);
-            data.append("category", formData.category);
-            data.append("subcategory", formData.subcategory);
-            data.append("productType", formData.productType);
-            data.append("colors", JSON.stringify(formData.colors));
-            data.append("sizes", JSON.stringify(formData.sizes));
-            data.append("price", Number(formData.price));
-            data.append("currency", formData.currency);
-            data.append("discount", Number(formData.discount));
-            data.append("stock", Number(formData.stock));
-            data.append("description", formData.description);
-            data.append("isActive", formData.isActive);
-
-            // إضافة ملفات الصور
-            formData.images.forEach((file, idx) => {
-                data.append("images", file);
-            });
-
-            // إرسال البيانات مع هيدر النوع multipart/form-data
-            await axios.post("http://localhost:5000/api/produits", data, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
-
-            alert("تمت إضافة المنتج بنجاح");
-
-            // إعادة تعيين الحقول
-            setFormData({
-                name: "",
-                category: "",
-                subcategory: "",
-                productType: "",
-                colors: [],
-                sizes: [],
-                images: [],
-                price: "",
-                currency: "TL",
-                discount: 0,
-                stock: 0,
-                description: "",
-                isActive: true,
-            });
-
-            // إعادة تعيين معاينات الصور
-            setImagePreviews([]);
-
-        } catch (error) {
-            console.error("خطأ أثناء إضافة المنتج:", error);
-            alert("حدث خطأ أثناء إضافة المنتج، حاول مرة أخرى");
-        }
-    };
-
-    return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-            <form
-                onSubmit={handleSubmit}
-                className="bg-white p-8 rounded shadow-md w-full max-w-5xl"
-                encType="multipart/form-data"
-            >
-                <h2 className="text-2xl font-bold mb-6 text-center text-blue-800">إضافة منتج</h2>
-
-                <div className="grid grid-cols-3 gap-6">
-                    {/* باقي الحقول كما هي */}
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">اسم المنتج</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="أدخل اسم المنتج"
-                            required
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">الفئة</label>
-                        <select
-                            name="category"
-                            value={formData.category}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            <option value="">اختر الفئة</option>
-                            {categories.map(cat => (
-                                <option key={cat} value={cat}>{cat}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">الفئة الفرعية</label>
-                        <select
-                            name="subcategory"
-                            value={formData.subcategory}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            <option value="">اختر الفئة الفرعية (اختياري)</option>
-                            {subcategories.map(sub => (
-                                <option key={sub} value={sub}>{sub}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">نوع المنتج</label>
-                        <select
-                            name="productType"
-                            value={formData.productType}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            <option value="">اختر نوع المنتج</option>
-                            {productTypes.map(pt => (
-                                <option key={pt} value={pt}>{pt}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">الألوان (مفصولة بفواصل)</label>
-                        <input
-                            type="text"
-                            name="colors"
-                            value={formData.colors.join(", ")}
-                            onChange={handleChange}
-                            placeholder="أدخل الألوان (مثل: أحمر, أزرق)"
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">المقاسات (مفصولة بفواصل)</label>
-                        <input
-                            type="text"
-                            name="sizes"
-                            value={formData.sizes.join(",")}
-                            onChange={handleChange}
-                            placeholder="أدخل المقاسات (مثل: S, M, L)"
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">السعر</label>
-                        <input
-                            type="number"
-                            name="price"
-                            value={formData.price}
-                            onChange={handleChange}
-                            placeholder="أدخل السعر"
-                            required
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            min="0"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">العملة</label>
-                        <select
-                            name="currency"
-                            value={formData.currency}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            {currencies.map(cur => (
-                                <option key={cur} value={cur}>{cur}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">الخصم (%)</label>
-                        <input
-                            type="number"
-                            name="discount"
-                            value={formData.discount}
-                            onChange={handleChange}
-                            min="0"
-                            max="100"
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block mb-2 font-semibold text-blue-700">الكمية في المخزون</label>
-                        <input
-                            type="number"
-                            name="stock"
-                            value={formData.stock}
-                            onChange={handleChange}
-                            min="0"
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    <div className="col-span-3">
-                        <label className="block mb-2 font-semibold text-blue-700">الوصف</label>
-                        <textarea
-                            name="description"
-                            value={formData.description}
-                            onChange={handleChange}
-                            placeholder="أدخل وصف المنتج"
-                            rows={4}
-                            className="w-full px-3 py-2 border border-blue-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-
-                    {/* حقل رفع الصور المعدل */}
-                    <div className="col-span-3">
-                        <label className="block mb-1 font-semibold text-blue-800">الصور (Images)</label>
-                        <div className="flex flex-wrap gap-3 mb-2">
-                            {imagePreviews.map((img, index) => (
-                                <div key={index} className="relative w-20 h-20 border rounded overflow-hidden">
-                                    <img
-                                        src={img}
-                                        alt={`صورة ${index + 1}`}
-                                        className="object-cover w-full h-full"
-                                    />
-                                    <button
-                                        type="button"
-                                        onClick={() => handleRemoveImage(index)}
-                                        className="absolute top-0 right-0 bg-red-600 text-white rounded-bl px-1"
-                                        aria-label="حذف الصورة"
-                                    >
-                                        ×
-                                    </button>
-                                </div>
-                            ))}
-
-                            {/* زر رفع الصور */}
-                            <label
-                                htmlFor="imageUpload"
-                                className="flex items-center justify-center w-20 h-20 border-2 border-dashed border-blue-400 rounded cursor-pointer text-blue-600 text-4xl font-bold hover:bg-blue-100 select-none"
-                                title="اضغط لإضافة صورة"
-                            >
-                                +
-                            </label>
-                            <input
-                                type="file"
-                                id="imageUpload"
-                                multiple
-                                accept="image/*"
-                                onChange={handleImageUpload}
-                                className="hidden"
-                                required={imagePreviews.length === 0}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="col-span-3 flex justify-center mt-6">
-                        <button
-                            type="submit"
-                            className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
-                        >
-                            إضافة المنتج
-                        </button>
-                    </div>
-                </div>
-            </form>
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        noValidate
+      >
+        {/* اسم المنتج */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.name")}
+          </label>
+          <input
+            name="name"
+            value={formState.name}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+            required
+          />
         </div>
-    );
-}
+
+        {/* التصنيف */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.category")}
+          </label>
+          <input
+            name="category"
+            value={formState.category}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+            required
+          />
+        </div>
+
+        {/* التصنيف الفرعي */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.subcategory")}
+          </label>
+          <input
+            name="subcategory"
+            value={formState.subcategory}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+          />
+        </div>
+
+        {/* نوع المنتج */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.product_type")}
+          </label>
+          <input
+            name="productType"
+            value={formState.productType}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+          />
+        </div>
+
+        {/* الوصف */}
+        <div className="md:col-span-2">
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.description")}
+          </label>
+          <textarea
+            name="description"
+            value={formState.description}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+            rows={4}
+          />
+        </div>
+
+        {/* المخزون */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.stock")}
+          </label>
+          <input
+            name="stock"
+            type="number"
+            value={formState.stock}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+            min={0}
+          />
+        </div>
+
+        {/* الخصم */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.discount")}
+          </label>
+          <input
+            name="discount"
+            type="number"
+            value={formState.discount}
+            onChange={handleChange}
+            className="w-full border p-3 rounded-xl"
+            min={0}
+            max={100}
+          />
+        </div>
+
+        {/* أسعار العملات */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.price_tl")}
+          </label>
+          <input
+            name="prices.TL"
+            type="number"
+            value={formState.prices.TL}
+            onChange={handleChange}
+            placeholder="₺"
+            className="w-full border p-3 rounded-xl"
+            min={0}
+          />
+        </div>
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.price_usd")}
+          </label>
+          <input
+            name="prices.USD"
+            type="number"
+            value={formState.prices.USD}
+            onChange={handleChange}
+            placeholder="$"
+            className="w-full border p-3 rounded-xl"
+            min={0}
+          />
+        </div>
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.price_eur")}
+          </label>
+          <input
+            name="prices.EUR"
+            type="number"
+            value={formState.prices.EUR}
+            onChange={handleChange}
+            placeholder="€"
+            className="w-full border p-3 rounded-xl"
+            min={0}
+          />
+        </div>
+
+        {/* الأحجام */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.sizes_hint")}
+          </label>
+          <input
+            type="text"
+            onChange={handleSizesChange}
+            placeholder={t("form.sizes_placeholder")}
+            className="w-full border p-3 rounded-xl"
+          />
+        </div>
+
+        {/* الألوان */}
+        <div>
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.colors_hint")}
+          </label>
+          <input
+            type="text"
+            onChange={handleColorsChange}
+            placeholder={t("form.colors_placeholder")}
+            className="w-full border p-3 rounded-xl"
+          />
+        </div>
+
+        {/* رفع الصور */}
+        <div className="md:col-span-2">
+          <label className="block mb-1 font-semibold text-gray-700">
+            {t("form.upload_images")}
+          </label>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleImageUpload}
+            className="w-full border p-3 rounded-xl"
+          />
+        </div>
+
+        {/* عرض صور المعاينة مع زر الحذف */}
+        {imagePreviews.length > 0 && (
+          <div className="md:col-span-2 flex flex-wrap gap-4 mt-4">
+            {imagePreviews.map((img, idx) => (
+              <div
+                key={idx}
+                className="relative w-24 h-24 border rounded overflow-hidden"
+              >
+                <img
+                  src={img}
+                  alt={t("form.image_preview_alt")}
+                  className="w-full h-full object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(idx)}
+                  className="absolute top-0 right-0 bg-red-600 text-white px-1 rounded-bl"
+                  aria-label={t("form.remove_image")}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* زر الإرسال */}
+        <div className="md:col-span-2 text-center mt-6">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700 transition"
+          >
+            {t("form.submit_button")}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddProduct;
