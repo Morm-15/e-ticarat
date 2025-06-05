@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
         },
         subcategory: {
             type: String,
-            enum: ['tişört', 'pantolon', 'bot', 'çanta'],
+            enum: ['tişört', 'pantolon', 'bot', 'çanta',],
         },
         productType: {
             type: String,
@@ -27,21 +27,16 @@ const productSchema = new mongoose.Schema(
         },
         sizes: {
             type: [String],
-            enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
             default: [],
         },
         images: {
-            type: [String],
+            type: [String],  // أسماء ملفات الصور أو روابط الصور
             required: [true, 'At least one product image is required'],
         },
-        price: {
-            type: Number,
-            required: [true, 'Product price is required'],
-        },
-        currency: {
-            type: String,
-            enum: ['USD', 'EUR', 'TL'],
-            default: 'TL',
+        prices: {
+            USD: { type: Number, default: 0 },
+            EUR: { type: Number, default: 0 },
+            TL: { type: Number, default: 0 },
         },
         discount: {
             type: Number,

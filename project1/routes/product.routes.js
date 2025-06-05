@@ -1,27 +1,57 @@
 import express from 'express';
+import multer from 'multer';
+import path from 'path';
+
 import {
     createProduct,
     getAllProducts,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
 } from '../controllers/product.controller.js';
 
 const router = express.Router();
 
-// إنشاء منتج جديد
-router.post('/', createProduct); // POST /api/products
+// إعداد التخزين
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        const ext = path.extname(file.originalname);
+        const basename = path.basename(file.originalname, ext);
+        cb(null, basename + '-' + Date.now() + ext);
+    },
+});
+
+// فلتر الملفات
+const fileFilter = (req, file, cb) => {
+    if (
+        file.mimetype === 'image/jpeg' ||
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/jpg'
+    ) {
+        cb(null, true);
+    } else {
+        cb(new Error('Unsupported file format'), false);
+    }
+};
+
+const upload = multer({ storage, fileFilter });
+
+// إنشاء منتج جديد مع صور
+router.post('/', upload.array('images', 5), createProduct);
 
 // جلب جميع المنتجات
-router.get('/', getAllProducts); // GET /api/products
+router.get('/', getAllProducts);
 
-// جلب منتج واحد حسب الـ ID
-router.get('/:id', getProductById); // GET /api/products/:id
+// جلب منتج حسب ID
+router.get('/:id', getProductById);
 
-// تعديل منتج
-router.put('/:id', updateProduct); // PUT /api/products/:id
+// تعديل منتج مع صور جديدة
+router.put('/:id', upload.array('images', 5), updateProduct);
 
 // حذف منتج
-router.delete('/:id', deleteProduct); // DELETE /api/products/:id
+router.delete('/:id', deleteProduct);
 
 export default router;

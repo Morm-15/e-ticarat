@@ -1,0 +1,28 @@
+# Node.js backend
+node_modules/
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React frontend
+node_modules/
+build/
+dist/
+
+# Logs
+logs
+*.log
+
+# Mac system files
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
+
+# Debug files
+*.local

@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import { FiGlobe, FiDollarSign } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
+import logo from "../assets/Moon_tc2.png";
+import { useNavigate } from "react-router-dom"; // استيراد
 
 function Header() {
   const { i18n } = useTranslation();
+  const navigate = useNavigate(); // استدعاء الـ navigate
+
+  // دالة التعامل مع الضغط على اللوجو
+  const goToDashboard = () => {
+    navigate("/dashboard"); // أو أي مسار صفحة الـ Dashboard عندك
+  };
 
   const [selectedLanguage, setSelectedLanguage] = useState(
     i18n.language.toUpperCase() || "EN"
@@ -13,7 +21,7 @@ function Header() {
   const [showCurrencyDropdown, setShowCurrencyDropdown] = useState(false);
 
   const languages = ["AR", "EN", "FR", "TR"];
-  const currencies = ["USD", "EUR", "TRY", "SAR"];
+  const currencies = ["USD", "EUR", "TRY"];
 
   // تغيير اتجاه الصفحة حسب اللغة
   useEffect(() => {
@@ -29,8 +37,11 @@ function Header() {
   return (
     <header className="flex justify-between items-center px-4 md:px-8 py-4 bg-gradient-to-r from-gray-100 via-white to-gray-100 shadow-md">
       {/* Logo */}
-      <div className="flex items-center gap-4">
-        <img src="/path-to-your-logo.png" alt="Logo" className="w-12 h-12" />
+      <div
+        className="flex items-center gap-4 cursor-pointer"
+        onClick={goToDashboard}
+      >
+        <img src={logo} alt="Logo" className="w-12 h-12 rounded-[5px]" />
       </div>
 
       {/* اللغة والعملة */}
