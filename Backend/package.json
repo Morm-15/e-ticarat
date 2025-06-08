@@ -9,7 +9,6 @@
     "test": "jest --watchAll",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
