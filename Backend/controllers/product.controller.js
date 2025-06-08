@@ -3,7 +3,7 @@ import Product from '../models/product.model.js';
 
 // قوائم السماح (عدل حسب حاجتك)
 const allowedCategories = ['giyim', 'ayakkabı', 'aksesuar'];
-const allowedSubcategories = ['tişört', 'pantolon', 'bot', 'çanta'];
+const allowedSubcategories = ['tişört', 'pantolon', 'bot', 'çanta' ,"saat"];
 const allowedTypes = ['erkek', 'kadın', 'çocuk', 'unisex'];
 
 // إنشاء منتج جديد

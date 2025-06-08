@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
         },
         subcategory: {
             type: String,
-            enum: ['tişört', 'pantolon', 'bot', 'çanta',],
+            enum: ['tişört', 'pantolon', 'bot', 'çanta' ,"saat"],
         },
         productType: {
             type: String,
