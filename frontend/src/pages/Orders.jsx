@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 export default function Orders() {
     const { t } = useTranslation();
@@ -9,7 +11,7 @@ export default function Orders() {
 
     // دالة لجلب الطلبات
     const fetchOrders = async () => {
-        const res = await fetch("http://localhost:5000/api/orders");
+        const res = await fetch(`${API_BASE_URL}/api/orders`);
         if (!res.ok) throw new Error(t("order.fetchOrdersError"));
         return res.json();
     };
@@ -23,7 +25,7 @@ export default function Orders() {
     // استخدام useMutation مع الدوال المناسبة
     const mutation = useMutation({
         mutationFn: ({ orderId, newStatus }) =>
-            fetch(`http://localhost:5000/api/orders/${orderId}`, {
+            fetch(`${API_BASE_URL}/api/orders/${orderId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),

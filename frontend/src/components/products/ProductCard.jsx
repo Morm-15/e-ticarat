@@ -8,6 +8,8 @@ import {
     FaStarHalfAlt,
     FaRegStar,
 } from "react-icons/fa";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const ProductCard = ({ product, onEdit, onDelete, onView }) => {
     const { t } = useTranslation();
@@ -31,7 +33,7 @@ const ProductCard = ({ product, onEdit, onDelete, onView }) => {
 
     const imageUrl =
         Array.isArray(product.images) && product.images.length > 0
-            ? `http://localhost:5000/uploads/${encodeURIComponent(product.images[0])}`
+            ? `${API_BASE_URL}/uploads/${encodeURIComponent(product.images[0])}`
             : "/fallback.jpg";
 
     return (

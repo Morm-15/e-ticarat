@@ -16,6 +16,8 @@ import {
 } from "recharts";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const data = [
     { name: "Jan", sales: 400 },
@@ -53,12 +55,12 @@ function SalesChart() {
 }
 
 const fetchUsers = async () => {
-    const { data } = await axios.get("http://localhost:5000/api/users");
+    const { data } = await axios.get(`${API_BASE_URL}/api/users`);
     return data || [];
 };
 
 const fetchProducts = async () => {
-    const { data } = await axios.get("http://localhost:5000/api/products");
+    const { data } = await axios.get(`${API_BASE_URL}/api/products`);
     return data || [];
 };
 

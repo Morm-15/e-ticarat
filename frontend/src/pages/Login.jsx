@@ -4,6 +4,8 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.jpg";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 function Login() {
     const { t, i18n } = useTranslation();
@@ -13,7 +15,7 @@ function Login() {
 
     // دالة تسجيل الدخول
     const loginUser = async ({ email, password }) => {
-        const response = await axios.post("http://localhost:5000/api/users/login", {
+        const response = await axios.post(`${API_BASE_URL}/api/users/login`, {
             email,
             password,
         });

@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 
 // React Query imports
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 import ProductCard from "../../components/products/ProductCard.jsx";
 import ProductDetailModal from "../../components/products/ProductDetailModal.jsx";
@@ -32,7 +34,7 @@ const ProductList = () => {
     // ✅ حذف منتج باستخدام useMutation
     const deleteMutation = useMutation({
         mutationFn: (productId) =>
-            axios.delete(`http://localhost:5000/api/products/${productId}`),
+            axios.delete(`${API_BASE_URL}/api/products/${productId}`),
         onSuccess: () => {
             queryClient.invalidateQueries(['products']);
             closeDeleteModal();
@@ -82,7 +84,7 @@ const ProductList = () => {
     // ✅ تعديل منتج
     const editMutation = useMutation({
         mutationFn: ({ _id, formData }) =>
-            axios.put(`http://localhost:5000/api/products/${_id}`, formData, {
+            axios.put(`${API_BASE_URL}/api/products/${_id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -109,7 +111,7 @@ const ProductList = () => {
         <div className="p-6">
             <h2 className="text-2xl font-bold mb-6">{t("title.products")}</h2>
             {!Array.isArray(products) || products.length === 0 ? (
-                <p>{t("message.no_products")}</p>
+                <p>{t("error.fetchingProducts")}</p>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {products.map((product) => (

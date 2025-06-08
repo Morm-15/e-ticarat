@@ -1,5 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const ProductDetailModal = ({ product, onClose }) => {
     const { t } = useTranslation();
@@ -25,7 +27,7 @@ const ProductDetailModal = ({ product, onClose }) => {
 
                 {product.images && product.images.length > 0 ? (
                     <img
-                        src={`http://localhost:5000/uploads/${encodeURIComponent(
+                        src={`${API_BASE_URL}/uploads/${encodeURIComponent(
                             product.images[0]
                         )}`}
                         alt={product.name}
