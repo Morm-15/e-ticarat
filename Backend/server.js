@@ -34,7 +34,7 @@ const upload = multer({ storage });
 
 // إعداد CORS للسماح للفرونت إند
 app.use(cors({
-    origin: "*",
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
 }));
