@@ -6,7 +6,6 @@
 ## 🌐 Live Demo
 
 - **Frontend:** [https://e-ticarat.vercel.app/](https://e-ticarat.vercel.app/)  
-- **Backend:** [https://e-ticarat.onrender.com/](https://e-ticarat.onrender.com/)
 
 ### 🔑 Demo Login Info:
 - **Email:** mos@example.com  
