@@ -1,14 +1,12 @@
-// src/routes/AppRoutes.jsx
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard";
 import UsersList from "../pages/users/UsersList.jsx";
-
 import ProductsList from "../pages/products/ProductsList.jsx";
 import ProductAddForm from "../pages/products/AddProduct.jsx";
-
-import Orders from "../pages/Orders.jsx";  // إضافة استيراد صفحة الطلبات
+import Orders from "../pages/Orders.jsx";
+import Payments from "../pages/Payments.jsx";
 
 const router = createBrowserRouter([
     {
@@ -36,8 +34,12 @@ const router = createBrowserRouter([
                 element: <ProductAddForm />,
             },
             {
-                path: "orders",               // إضافة مسار صفحة الطلبات
+                path: "orders",
                 element: <Orders />,
+            },
+            {
+                path: "payments",
+                element: <Payments />,
             },
         ],
     },

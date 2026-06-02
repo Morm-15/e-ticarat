@@ -1,27 +1,63 @@
 import mongoose from 'mongoose';
 
-// تعريف مخطط قاعدة البيانات للمعاملات
 const transactionSchema = new mongoose.Schema({
     order: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order',  // المرجعية لنموذج الطلب
-        required: true,  // حقل مطلوب
+        ref: 'Order',
+        default: null,
     },
     amount: {
-        type: Number,  // المبلغ المدفوع
-        required: true,  // حقل مطلوب
+        type: Number,
+        required: true,
+    },
+    currency: {
+        type: String,
+        default: 'usd',
     },
     paymentMethod: {
-        type: String,  // طريقة الدفع
-        enum: ['cash', 'credit_card', 'paypal'],  // القيم المسموح بها
-        required: true,  // حقل مطلوب
+        type: String,
+        enum: ['cash', 'credit_card', 'paypal', 'stripe'],
+        default: 'stripe',
     },
     status: {
-        type: String,  // حالة المعاملة
-        enum: ['pending', 'completed', 'failed'],  // القيم المسموح بها
-        required: true,  // حقل مطلوب
+        type: String,
+        enum: ['pending', 'completed', 'failed', 'refunded'],
+        default: 'pending',
     },
-}, { timestamps: true });  // إضافة طابع زمني لإنشاء وتحديث السجلات
+    // حقول Stripe
+    stripePaymentIntentId: {
+        type: String,
+        default: null,
+    },
+    stripeSessionId: {
+        type: String,
+        default: null,
+    },
+    stripeCustomerId: {
+        type: String,
+        default: null,
+    },
+    receiptUrl: {
+        type: String,
+        default: null,
+    },
+    customerEmail: {
+        type: String,
+        default: null,
+    },
+    customerName: {
+        type: String,
+        default: null,
+    },
+    description: {
+        type: String,
+        default: '',
+    },
+    metadata: {
+        type: mongoose.Schema.Types.Mixed,
+        default: {},
+    },
+}, { timestamps: true });
 
-const Transaction = mongoose.model('Transaction', transactionSchema);  // إنشاء النموذج بناءً على المخطط
+const Transaction = mongoose.model('Transaction', transactionSchema);
 export default Transaction;

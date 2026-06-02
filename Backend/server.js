@@ -9,6 +9,7 @@ import connectDB from './config/db.js';
 import productRoutes from './routes/product.routes.js';
 import userRoutes from './routes/user.routes.js';
 import orderRoutes from './routes/order.routes.js';
+import paymentRoutes from './routes/payment.routes.js';
 
 dotenv.config();
 
@@ -72,7 +73,8 @@ app.post('/upload', upload.array('images', 10), (req, res) => {
 // المسارات
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/orders',orderRoutes );
+app.use('/api/orders', orderRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // تشغيل السيرفر
 const startServer = async () => {
