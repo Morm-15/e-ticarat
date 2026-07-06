@@ -10,6 +10,7 @@ import productRoutes from './routes/product.routes.js';
 import userRoutes from './routes/user.routes.js';
 import orderRoutes from './routes/order.routes.js';
 import paymentRoutes from './routes/payment.routes.js';
+import { handleWebhook } from './controllers/payment.controller.js';
 
 dotenv.config();
 
@@ -48,6 +49,10 @@ app.use(helmet({
 }));
 
 app.use(morgan('dev'));
+
+// Webhook الخاص بـ Stripe يجب أن يكون هنا قبل express.json()
+app.post('/api/payments/webhook', express.raw({ type: 'application/json' }), handleWebhook);
+
 app.use(express.json());
 
 // توفير الوصول لملفات الصور
