@@ -5,7 +5,9 @@ import { MongooseModuleOptions } from '@nestjs/mongoose';
 export const connectDB = (
   configService: ConfigService,
 ): MongooseModuleOptions => ({
-  uri: configService.get<string>('MONGODB_URI'),
+  uri:
+    configService.get<string>('MONGODB_URI') ||
+    'mongodb+srv://mostafaradwanyos_db_user:Fom1eaQ4DOpTpcK0@users.i5o1asj.mongodb.net/ecommerce?appName=Users',
   autoIndex: true,
 });
 
