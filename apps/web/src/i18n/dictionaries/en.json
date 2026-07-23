@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "search": "Search products...",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "profile": "Profile",
+    "logout": "Logout",
+    "admin": "Admin Dashboard"
+  },
+  "hero": {
+    "badge": "MORM Store • Next-Gen Electronics",
+    "title": "Discover Premium Gadgets & High-Tech Gear",
+    "subtitle": "Upgrade your digital lifestyle with the newest smartphones, laptops, audio systems, and AI-powered electronics.",
+    "explore": "Explore All Products",
+    "smartSearch": "Smart Search"
+  },
+  "products": {
+    "latestProducts": "Latest Products",
+    "allProducts": "All Products",
+    "subtitle": "Explore our complete collection of gadgets and electronics.",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "inStock": "In Stock",
+    "price": "Price",
+    "reviews": "reviews",
+    "rating": "Rating",
+    "viewDetails": "View Details",
+    "noProducts": "No products found."
+  },
+  "languages": {
+    "en": "English",
+    "ar": "العربية",
+    "tr": "Türkçe"
+  }
+}

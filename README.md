@@ -1,92 +1,103 @@
-# 🛍️ E-Commerce Admin Dashboard  
-**(E-Ticaret Yönetim Paneli | لوحة تحكم متجر إلكتروني)**  
+# 🛒 ShopNest - Modern Full-Stack E-Commerce Platform
+
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![Next.js 15](https://img.shields.io/badge/Next.js%2015-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+A feature-rich, high-performance **Full-Stack E-Commerce Platform** built with **NestJS**, **Next.js 15 (App Router)**, **MongoDB Atlas**, and **pnpm Monorepo**. Features role-based access control, JWT authentication, persistent cart management, product reviews, interactive pagination, and AI-assisted product search.
 
 ---
 
-## 🌐 Live Demo
+## ✨ Key Features
 
-- **Frontend:** [https://e-ticarat.vercel.app/](https://e-ticarat.vercel.app/)  
+### 🛍️ Frontend (Client)
+- **Next.js 15 App Router** with Turbopack for super-fast server rendering.
+- **Modern Responsive Design** with custom gradient branding (`ShopNest`), Shadcn UI, and Tailwind CSS.
+- **Hero Section & Dynamic Product Grid** with status indicators, ratings, and pagination.
+- **Cart & Order System** featuring guest local storage and user server-side cart sync.
+- **Dark/Light Theme Toggle** powered by `next-themes`.
 
-### 🔑 Demo Login Info:
-- **Email:** mos@example.com  
-- **Password:** mbe1234mbe  
-
----
-
-## 🇬🇧 English Description
-
-**E-Commerce Admin Dashboard** is a modern and responsive admin panel designed to manage an online store efficiently.  
-It enables the admin to manage employees, monitor prices, and control settings with full multilingual support and real-time USD to TRY currency tracking.
-
-### ⚙️ Technologies Used:
-- **Frontend:** React.js, Tailwind CSS, i18next  
-- **Backend:** Node.js, Express.js, MongoDB  
-- **Tools:** GitHub, Vercel, Render  
-
-### 💡 Features:
-- Employee management (add, delete, update)  
-- Multi-language support (Arabic, Turkish, English)  
-- Live USD/TRY currency API integration  
-- Fast and responsive UI  
-- Secure authentication with JWT  
-
-### 👨‍💻 Team:
-- **Mustafa Rıdvan:** Project Manager & Full Stack Developer (Backend + Frontend + Database)  
-- **+2 Team Members:** Design and testing support  
+### ⚙️ Backend (API)
+- **NestJS Modular Architecture** with clean dependency injection, Controllers, DTOs, and Services.
+- **MongoDB Atlas Integration** via `@nestjs/mongoose` schemas.
+- **JWT & Cookie Authentication** with refresh token handling and Passport.js strategy.
+- **Swagger Interactive API Documentation** available at `/api`.
+- **Global Pipes & Helmet Security** for strict request validation and headers protection.
 
 ---
 
-## 🇹🇷 Türkçe Açıklama
+## 🛠️ Tech Stack
 
-**E-Ticaret Yönetim Paneli (E-Commerce Admin Dashboard)**, bir çevrimiçi mağazayı yönetmek için geliştirilmiş modern bir kontrol panelidir.  
-Yönetici, çalışanları yönetebilir, döviz kurlarını takip edebilir ve sistem ayarlarını düzenleyebilir.  
-Proje **MERN Stack** teknolojileriyle geliştirilmiş olup, çoklu dil desteği ve USD/TRY döviz kuru API’si içermektedir.
-
-### ⚙️ Kullanılan Teknolojiler:
-- **Frontend:** React.js, Tailwind CSS, i18next  
-- **Backend:** Node.js, Express.js, MongoDB  
-- **Araçlar:** GitHub, Vercel, Render  
-
-### 💡 Özellikler:
-- Çalışan yönetimi (ekle/sil/güncelle)  
-- Çoklu dil desteği (Arapça, Türkçe, İngilizce)  
-- API üzerinden USD/TRY kuru takibi  
-- Hızlı ve duyarlı arayüz  
-- JWT ile güvenli veri koruması  
-
-### 👨‍💻 Takım:
-- **Mustafa Rıdvan:** Proje yöneticisi, tam yığın geliştirici (Backend + Frontend + Veritabanı)  
-- **+2 Takım Üyesi:** Tasarım ve test desteği  
+| Domain | Technologies Used |
+|---|---|
+| **Frontend** | Next.js 15, React 19, TypeScript, Tailwind CSS, Shadcn UI, Lucide Icons, TanStack Query |
+| **Backend** | NestJS, TypeScript, Mongoose, Passport.js, JWT, Argon2, Swagger, Helmet |
+| **Database** | MongoDB Atlas (Cloud NoSQL Database) |
+| **Monorepo & Build** | pnpm Workspaces, TurboRepo, Cross-Env |
 
 ---
 
-## 🇸🇦 الوصف (العربية)
+## 🚀 Getting Started
 
-مشروع **E-Commerce Admin Dashboard** هو لوحة تحكم احترافية لإدارة متجر إلكتروني.  
-يتيح للمسؤول (Admin) إدارة الموظفين، مراقبة الأسعار، والتحكم في إعدادات المتجر بسهولة.  
-تم تنفيذ المشروع باستخدام **MERN Stack** مع دعم تعدد اللغات وتكامل API خارجي لجلب سعر الدولار مقابل الليرة التركية.
+### Prerequisites
+- **Node.js**: `v18+` or `v20+`
+- **pnpm**: `pnpm install -g pnpm`
 
-### ⚙️ التقنيات المستخدمة:
-- **الواجهة الأمامية:** React.js، Tailwind CSS، i18next  
-- **الواجهة الخلفية:** Node.js، Express.js، MongoDB  
-- **أدوات:** GitHub، Vercel، Render  
+### 1. Clone the repository
+```bash
+git clone https://github.com/YOUR_USERNAME/e-ticarat.git
+cd e-ticarat
+```
 
-### 💡 الميزات:
-- إدارة الموظفين (إضافة / حذف / تعديل)  
-- دعم متعدد اللغات (العربية، التركية، الإنجليزية)  
-- عرض سعر الدولار مقابل الليرة التركية عبر API  
-- واجهة مرنة وسريعة  
-- أمن البيانات باستخدام JWT  
+### 2. Install dependencies
+```bash
+pnpm install
+```
 
-### 👨‍💻 الفريق:
-- **مصطفى رضوان (Mustafa Rıdvan):** المدير التنفيذي والمشرف العام والمطور الرئيسي (Backend + Frontend + Database)  
-- **+2 أعضاء فريق:** مساهمون في التصميم والاختبار  
+### 3. Setup Environment Variables
+
+#### `apps/server/.env`:
+```env
+PORT=5000
+ALLOWED_ORIGINS=http://localhost:3000
+MONGODB_URI=mongodb+srv://YOUR_DB_USER:YOUR_PASSWORD@cluster.mongodb.net/ecommerce
+JWT_SECRET=your_jwt_secret
+JWT_ACCESS_SECRET=your_access_secret
+JWT_REFRESH_SECRET=your_refresh_secret
+```
+
+#### `apps/web/.env.local`:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/v1
+```
+
+### 4. Seed Sample Products
+```bash
+cd apps/server
+node seed-products.js
+```
+
+### 5. Run Development Servers
+
+#### Start Backend (NestJS):
+```bash
+cd apps/server
+pnpm run dev
+```
+
+#### Start Frontend (Next.js):
+```bash
+cd apps/web
+pnpm run dev
+```
+
+- **Frontend Application**: `http://localhost:3000`
+- **Backend API Server**: `http://localhost:5000/v1`
+- **Swagger Documentation**: `http://localhost:5000/api`
 
 ---
 
-## 🧠 Local Setup / Kurulum / التشغيل المحلي
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/e-commerce-admin-dashboard.git
-   cd e-commerce-admin-dashboard
+## 📜 License
+This project is open-source under the [MIT License](LICENSE).
