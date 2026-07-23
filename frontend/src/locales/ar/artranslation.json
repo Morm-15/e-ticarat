@@ -24,11 +24,13 @@
     "cancel": "إلغاء"
   },
   "sidebar": {
+    "dashboard": "لوحة التحكم",
     "users": "المستخدمون",
     "products": "المنتجات",
     "productsList": "عرض جميع المنتجات",
     "addProduct": "إضافة منتج",
-    "orders": "الطلبات"
+    "orders": "الطلبات",
+    "payments": "المدفوعات"
   },
   "users": {
     "listTitle": "قائمة المستخدمين",
@@ -120,18 +122,12 @@
   "email": "البريد الإلكتروني",
   "role": "الدور",
   "actions": "الإجراءات",
-  "edit": "تعديل",
-  "delete": "حذف",
   "usersListTitle": "قائمة المستخدمين",
   "fetchUsersError": "حدث خطأ أثناء جلب المستخدمين:",
   "deleteUserError": "حدث خطأ أثناء حذف المستخدم:",
-
   "editUser": "تعديل المستخدم",
   "userUpdatedSuccess": "تم تعديل المستخدم بنجاح ✔",
   "updateUserError": "حدث خطأ أثناء تعديل المستخدم:",
-  "name": "الاسم",
-  "email": "البريد الإلكتروني",
-  "role": "الدور",
   "admin": "مدير",
   "user": "مستخدم",
   "status": "الحالة",
@@ -146,10 +142,8 @@
   "enterCode": "أدخل الرمز المكون من 4 خانات",
   "wrongUserName": "اسم المستخدم غير صحيح",
   "wrongCode": "الرمز غير صحيح",
-  "cancel": "إلغاء",
   "confirmDelete": "تأكيد الحذف",
   "welcome_admin": "مرحبًا بعودتك أيها الأدمن",
-  "email": "البريد الإلكتروني",
   "password": "كلمة المرور",
   "login": "تسجيل الدخول",
   "logging_in": "جاري تسجيل الدخول...",
@@ -157,11 +151,9 @@
   "error_message": "يرجى ادخال كلمة سر صحيحة",
   "deleteProductTitle": "تأكيد حذف المنتج",
   "deleteProductConfirm": "هل أنت متأكد أنك تريد حذف المنتج:",
-  "cancel": "إلغاء",
-  "delete": "حذف",
   "logout": "تسجيل الخروج",
   "dashboard": {
-    "welcome": "  مرحباً بك في لوحة التحكم",
+    "welcome": "مرحباً بك في لوحة التحكم",
     "users": "المستخدمون",
     "products": "المنتجات",
     "orders": "الطلبات",
@@ -169,7 +161,6 @@
     "salesChartTitle": "المبيعات على مدار الوقت"
   },
   "logoutConfirm": "هل تريد تسجيل الخروج؟",
-  "cancel": "إلغاء",
   "confirm": "موافق",
   "dashboard.exchangeRates": "أسعار العملات",
   "order": {

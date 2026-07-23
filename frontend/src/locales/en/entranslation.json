@@ -24,11 +24,13 @@
     "cancel": "Cancel"
   },
   "sidebar": {
+    "dashboard": "Dashboard",
     "users": "Users",
     "products": "Products",
     "productsList": "View All Products",
     "addProduct": "Add Product",
-    "orders": "Orders"
+    "orders": "Orders",
+    "payments": "Payments"
   },
   "users": {
     "listTitle": "Users List",
@@ -120,17 +122,12 @@
   "email": "Email",
   "role": "Role",
   "actions": "Actions",
-  "edit": "Edit",
-  "delete": "Delete",
   "usersListTitle": "Users List",
   "fetchUsersError": "An error occurred while fetching users:",
   "deleteUserError": "An error occurred while deleting the user:",
   "editUser": "Edit User",
   "userUpdatedSuccess": "User updated successfully ✔",
   "updateUserError": "An error occurred while updating the user:",
-  "name": "Name",
-  "email": "Email",
-  "role": "Role",
   "admin": "Admin",
   "user": "User",
   "status": "Status",
@@ -145,10 +142,8 @@
   "enterCode": "Enter the 4-digit code",
   "wrongUserName": "Incorrect user name",
   "wrongCode": "Incorrect code",
-  "cancel": "Cancel",
   "confirmDelete": "Confirm Deletion",
   "welcome_admin": "Welcome back, Admin",
-  "email": "Email",
   "password": "Password",
   "login": "Login",
   "logging_in": "Logging in...",
@@ -156,8 +151,6 @@
   "error_message": "Please enter a valid password",
   "deleteProductTitle": "Confirm Product Deletion",
   "deleteProductConfirm": "Are you sure you want to delete the product:",
-  "cancel": "Cancel",
-  "delete": "Delete",
   "logout": "Logout",
   "dashboard": {
     "welcome": "Welcome to the Dashboard",
@@ -168,7 +161,6 @@
     "salesChartTitle": "Sales Over Time"
   },
   "logoutConfirm": "Do you want to log out?",
-  "cancel": "Cancel",
   "confirm": "Confirm",
   "dashboard.exchangeRates": "Exchange Rates",
   "order": {
@@ -196,5 +188,4 @@
       "cancelled": "Cancelled"
     }
   }
-
 }

@@ -7,6 +7,7 @@ import ProductsList from "../pages/products/ProductsList.jsx";
 import ProductAddForm from "../pages/products/AddProduct.jsx";
 import Orders from "../pages/Orders.jsx";
 import Payments from "../pages/Payments.jsx";
+import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <DashboardLayout />,
+        element: (
+            <ProtectedRoute>
+                <DashboardLayout />
+            </ProtectedRoute>
+        ),
         children: [
             {
                 index: true,

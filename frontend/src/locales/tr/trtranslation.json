@@ -24,11 +24,13 @@
     "cancel": "İptal"
   },
   "sidebar": {
+    "dashboard": "Gösterge Paneli",
     "users": "Kullanıcılar",
     "products": "Ürünler",
     "productsList": "Tüm Ürünleri Görüntüle",
     "addProduct": "Ürün Ekle",
-    "orders": "Siparişler"
+    "orders": "Siparişler",
+    "payments": "Ödemeler"
   },
   "users": {
     "listTitle": "Kullanıcı Listesi",
@@ -116,21 +118,16 @@
   },
   "edit": "Düzenle",
   "delete": "Sil",
-  "name": "İsim",
+  "name": "Ad",
   "email": "E-posta",
   "role": "Rol",
   "actions": "İşlemler",
-  "edit": "Düzenle",
-  "delete": "Sil",
   "usersListTitle": "Kullanıcı Listesi",
   "fetchUsersError": "Kullanıcılar alınırken bir hata oluştu:",
   "deleteUserError": "Kullanıcı silinirken bir hata oluştu:",
   "editUser": "Kullanıcıyı Düzenle",
   "userUpdatedSuccess": "Kullanıcı başarıyla güncellendi ✔",
   "updateUserError": "Kullanıcı güncellenirken bir hata oluştu:",
-  "name": "Ad",
-  "email": "E-posta",
-  "role": "Rol",
   "admin": "Yönetici",
   "user": "Kullanıcı",
   "status": "Durum",
@@ -145,10 +142,8 @@
   "enterCode": "4 haneli kodu girin",
   "wrongUserName": "Kullanıcı adı yanlış",
   "wrongCode": "Kod yanlış",
-  "cancel": "İptal",
   "confirmDelete": "Silmeyi Onayla",
   "welcome_admin": "Tekrar hoş geldiniz, Admin",
-  "email": "E-posta",
   "password": "Şifre",
   "login": "Giriş yap",
   "logging_in": "Giriş yapılıyor...",
@@ -156,8 +151,6 @@
   "error_message": "Lütfen geçerli bir şifre girin",
   "deleteProductTitle": "Ürünü Silme Onayı",
   "deleteProductConfirm": "Şu ürünü silmek istediğinizden emin misiniz:",
-  "cancel": "İptal",
-  "delete": "Sil",
   "logout": "Çıkış Yap",
   "dashboard": {
     "welcome": "Gösterge Paneline Hoşgeldiniz",
@@ -168,7 +161,6 @@
     "salesChartTitle": "Zaman İçinde Satışlar"
   },
   "logoutConfirm": "Çıkış yapmak istiyor musunuz?",
-  "cancel": "İptal",
   "confirm": "Onayla",
   "dashboard.exchangeRates": "Döviz Kurları",
   "order": {

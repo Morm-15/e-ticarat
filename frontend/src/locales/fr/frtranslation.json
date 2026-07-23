@@ -24,11 +24,13 @@
     "cancel": "Annuler"
   },
   "sidebar": {
+    "dashboard": "Tableau de bord",
     "users": "Utilisateurs",
     "products": "Produits",
     "productsList": "Voir tous les produits",
     "addProduct": "Ajouter un produit",
-    "orders": "Commandes"
+    "orders": "Commandes",
+    "payments": "Paiements"
   },
   "users": {
     "listTitle": "Liste des utilisateurs",
@@ -117,20 +119,15 @@
   "edit": "Modifier",
   "delete": "Supprimer",
   "name": "Nom",
-  "email": "Email",
+  "email": "E-mail",
   "role": "Rôle",
   "actions": "Actions",
-  "edit": "Modifier",
-  "delete": "Supprimer",
   "usersListTitle": "Liste des utilisateurs",
   "fetchUsersError": "Une erreur s'est produite lors du chargement des utilisateurs :",
   "deleteUserError": "Une erreur s'est produite lors de la suppression de l'utilisateur :",
   "editUser": "Modifier l'utilisateur",
   "userUpdatedSuccess": "Utilisateur modifié avec succès ✔",
   "updateUserError": "Une erreur s'est produite lors de la mise à jour de l'utilisateur :",
-  "name": "Nom",
-  "email": "E-mail",
-  "role": "Rôle",
   "admin": "Administrateur",
   "user": "Utilisateur",
   "status": "Statut",
@@ -145,10 +142,8 @@
   "enterCode": "Entrez le code à 4 chiffres",
   "wrongUserName": "Nom d'utilisateur incorrect",
   "wrongCode": "Code incorrect",
-  "cancel": "Annuler",
   "confirmDelete": "Confirmer la suppression",
   "welcome_admin": "Bon retour, Admin",
-  "email": "E-mail",
   "password": "Mot de passe",
   "login": "Se connecter",
   "logging_in": "Connexion en cours...",
@@ -156,8 +151,6 @@
   "error_message": "Veuillez entrer un mot de passe valide",
   "deleteProductTitle": "Confirmation de la suppression du produit",
   "deleteProductConfirm": "Êtes-vous sûr de vouloir supprimer le produit :",
-  "cancel": "Annuler",
-  "delete": "Supprimer",
   "logout": "Se déconnecter",
   "dashboard": {
     "welcome": "Bienvenue sur le tableau de bord",
@@ -168,7 +161,6 @@
     "salesChartTitle": "Ventes au fil du temps"
   },
   "logoutConfirm": "Voulez-vous vous déconnecter ?",
-  "cancel": "Annuler",
   "confirm": "Confirmer",
   "dashboard.exchangeRates": "Taux de change",
   "order": {
