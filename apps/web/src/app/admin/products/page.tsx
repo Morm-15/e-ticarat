@@ -15,13 +15,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 interface AdminProductsPageProps {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }
 
 export default async function AdminProductsPage({
   searchParams,
 }: AdminProductsPageProps) {
-  const { page } = searchParams;
+  const { page } = await searchParams;
   const currentPage = Number(page) || 1;
   const { items: products, pages } = await getProducts(currentPage, 8);
 
